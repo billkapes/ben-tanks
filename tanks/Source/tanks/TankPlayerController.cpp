@@ -27,11 +27,22 @@ void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Warning, TEXT("tickng"))
+	AimTowardsCrosshair();
 
 }
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
+	FVector OutHitLocation;
+	if (GetSightRayHitLocation(OutHitLocation))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("hitlocation: %s"), *OutHitLocation.ToString())
 
+	}
+}
+
+bool ATankPlayerController::GetSightRayHitLocation(FVector & OutHitLocation) const
+{
+	OutHitLocation = FVector(1.0);
+	return true;
 }
