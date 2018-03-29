@@ -9,7 +9,7 @@ void ATankAIController::Tick(float DeltaTime)
 
 	if (PlayerTank)
 	{
-		MoveToActor(PlayerTank, 100);
+		MoveToActor(PlayerTank, 1);
 
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 
