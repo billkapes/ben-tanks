@@ -7,9 +7,16 @@ void ATankAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	ControlledTank->AimAt(PlayerTank->GetActorLocation());
+	if (PlayerTank)
+	{
+		MoveToActor(PlayerTank, 100);
 
-	ControlledTank->Fire();
+		ControlledTank->AimAt(PlayerTank->GetActorLocation());
+
+		ControlledTank->Fire();
+
+		
+	}
 }
 
 void ATankAIController::BeginPlay()
