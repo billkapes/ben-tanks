@@ -4,7 +4,7 @@
 
 
 #include "CoreMinimal.h"
-#include "Engine/World.h"
+
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
@@ -24,8 +24,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 private:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank * GetControlledTank() const;
 
+private:
 	void AimTowardsCrosshair();
 
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
