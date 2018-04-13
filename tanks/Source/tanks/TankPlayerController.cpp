@@ -20,13 +20,16 @@ void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	//AimTowardsCrosshair();
+	AimTowardsCrosshair();
 
 }
 
 void ATankPlayerController::AimTowardsCrosshair()
 {
+	if (!ensure(GetPawn())) { return; }
+
 	FVector OutHitLocation;
+	
 	if (GetSightRayHitLocation(OutHitLocation))
 	{
 		GetControlledTank()->AimAt(OutHitLocation);
